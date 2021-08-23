@@ -1,0 +1,40 @@
+{
+  "name": "ross-cli",
+  "version": "1.0.0",
+  "description": "a command line interface for alioss",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npx --no-install commitlint --edit '$1'"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rayhomie/ross-cli.git"
+  },
+  "keywords": [
+    "oss",
+    "alioss",
+    "cli"
+  ],
+  "author": "rayhomie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rayhomie/ross-cli/issues"
+  },
+  "homepage": "https://github.com/rayhomie/ross-cli#readme",
+  "dependencies": {
+    "ali-oss": "^6.16.0",
+    "chalk": "^4.1.2",
+    "commander": "^8.1.0",
+    "inquirer": "^8.1.2",
+    "zx": "^3.1.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.1"
+  }
+}
