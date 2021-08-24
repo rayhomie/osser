@@ -1,8 +1,11 @@
 {
   "name": "ross-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a command line interface for alioss",
   "main": "index.js",
+  "bin": {
+    "ross": "bin/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
