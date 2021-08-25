@@ -1,5 +1,5 @@
 {
-  "name": "ross-cli",
+  "name": "ross",
   "version": "1.0.1",
   "description": "a command line interface for alioss",
   "main": "index.js",
@@ -7,11 +7,12 @@
     "ross": "bin/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "npm link --force && npm link ross"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rayhomie/ross-cli.git"
+    "url": "git+https://github.com/rayhomie/ross.git"
   },
   "keywords": [
     "oss",
@@ -21,9 +22,9 @@
   "author": "rayhomie",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rayhomie/ross-cli/issues"
+    "url": "https://github.com/rayhomie/ross/issues"
   },
-  "homepage": "https://github.com/rayhomie/ross-cli#readme",
+  "homepage": "https://github.com/rayhomie/ross#readme",
   "dependencies": {
     "ali-oss": "^6.16.0",
     "chalk": "^4.1.2",

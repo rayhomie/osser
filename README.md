@@ -1,4 +1,4 @@
-# ross-cli
+# ross
 
 a command line interface for alioss
 
