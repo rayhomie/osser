@@ -1,4 +1,4 @@
-# ross
+# osser
 
 a command line interface for alioss
 
