@@ -1,5 +1,6 @@
 {
   "name": "osser",
+  "private": false,
   "version": "1.0.1",
   "description": "a command line interface for alioss",
   "main": "index.js",
