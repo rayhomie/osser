@@ -3,7 +3,7 @@
   "private": false,
   "version": "1.0.2",
   "description": "a command line interface for alioss",
-  "main": "index.js",
+  "main": "bin/index.js",
   "bin": {
     "osser": "bin/index.js"
   },
