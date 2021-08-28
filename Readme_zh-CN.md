@@ -4,11 +4,8 @@
 
 ![Build Status](https://github.com/tj/commander.js/workflows/build/badge.svg)
 [![NPM Version](http://img.shields.io/npm/v/osser.svg?style=flat)](https://www.npmjs.com/package/osser)
-[![Install Size](https://packagephobia.now.sh/badge?p=osser)](https://www.npmjs.com/package/osser)
 
 使用其他语言阅读：[English](./README.md) | 简体中文
-
-
 
 ### 安装
 
@@ -20,11 +17,9 @@ npm install -g osser
 osser -v
 ```
 
-
-
 ### 添加配置文件
 
-需要在项目根目录下，放一个 oss 初始化的配置文件 osser.js 或者 osser.json。必须配置AccessKey，才可以正常使用。
+需要在项目根目录下，放一个 oss 初始化的配置文件 osser.js 或者 osser.json。必须配置 AccessKey，才可以正常使用。
 
 [配置项参考链接](https://help.aliyun.com/document_detail/64097.html)
 
@@ -44,21 +39,81 @@ module.exports = {
 };
 ```
 
+### glob 模式
 
-
-### glob模式
-
-通过**[glob模式](https://github.com/isaacs/node-glob)**来匹配需要上传的所有文件：
+通过**[glob 模式](https://github.com/isaacs/node-glob)**来匹配需要上传的所有文件：
 
 ```bash
-#指定上传 本地当前目录的dist文件夹下所有文件 到 远端oss的bucket的根路径下
+# 指定上传 本地当前目录的dist文件夹下所有文件 到 远端oss的bucket的根路径下
+osser --glob dist/**/*
+
+# 可用-g进行缩写
 osser -g dist/**/*
 ```
 
-可使用多个glob字符串来匹配文件：
+可使用多个 glob 字符串来匹配文件：
 
 ```bash
-osser -g dist/**/* static/**/*.png
+osser -g dist/**/* static/**/*.png 
 ```
 
-匹配路径中含有相对路径，匹配到的所有文件将直接上传至指定远端路径下，不会递归创建文件夹来存放这些文件
+匹配路径中含有相对路径，匹配到的所有文件将直接上传至指定远端路径下，不会递归创建文件夹来存放这些文件：
+
+```bash
+osser -g ../dist/**/*
+# 比如：(匹配符含有相对路径../，./，/等)
+# 匹配到的文件名是：../dist/mode/name.js
+# 上传到oss的路径为：name.js
+```
+
+```bash
+osser -g ../dist/**/* -d xiaohong 
+# 匹配到的文件名是：../dist/mode/name.js
+# 上传到oss的路径为：xiaohong/name.js
+```
+
+匹配到有相同的文件，会进行去重处理：
+
+```bash
+osser -g **/** dist/**
+# 此时肯定会匹配到相同的文件，则进行去重处理
+```
+
+可以使用--dir选项来指定上传oss的bucket根目录：
+
+```bash
+# 此时会将匹配到的文件，以xiaoming为根目录进行上传
+osser -g dist/**/* --dir xiaoming
+# 比如：
+# 匹配到的文件名是：dist/mode/name.js
+# 上传到oss的路径为：xiaoming/dist/mode/name.js
+```
+
+使用`--hash`选项，给上传的文件名称添加哈希值：
+
+```bash
+osser -g dist/**/* --hash
+# 默认是八位哈希值
+# dist/mode/name_d8jy7cz1.js 
+
+osser -g dist/**/* -h 4
+# 也可以指定哈希位数
+# dist/mode/name_d8jy.js 
+```
+
+使用`--time`选项，给上传的文件名称添加时间戳：
+
+```bash
+osser -g dist/**/* --time
+# dist/mode/name_20210828121131.js 
+
+# 也可以使用-t缩写
+osser -g dist/**/* -t
+
+# 也可以同时指定哈希值和时间戳
+osser -g dist/**/* -t -h
+# dist/mode/name_d8jy7cz1_20210828121131.js 
+```
+
+
+
