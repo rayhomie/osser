@@ -21,6 +21,8 @@ osser -v
 
 需要在项目根目录下，放一个 oss 初始化的配置文件 osser.js 或者 osser.json。必须配置 AccessKey，才可以正常使用。
 
+使用命令`osser init`在当前目录初始化osser.js文件，当前目录下存在osser.js文件则不会被重写。如果需要强制重写osser.js，使用命令`osser init --force`或者`osser init -f`
+
 [配置项参考链接](https://help.aliyun.com/document_detail/64097.html)
 
 ```js

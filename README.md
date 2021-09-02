@@ -23,6 +23,8 @@ You need to put an oss initialization configuration file `osser.js` or `osser.js
 
 AccessKey must be configured before it can be used normally.
 
+Use the command `osser init` to initialize the osser.js file in the current directory. If the osser.js file exists in the current directory, it will not be overwritten. If you need to force the rewriting of osser.js, use the command `osser init -- force` or `osser init - f`
+
 [Configuration Item Reference Link](https://help.aliyun.com/document_detail/64097.html)
 
 ```js
